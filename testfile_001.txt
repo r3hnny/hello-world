@@ -1,1 +1,37 @@
 creating testfile_001.txt 
+
+
+Adding some notes, 2022.02.27
+--create a branch
+To create a new branch and switch to it at the same time, you can run the git checkout command with the -b switch:
+$ git checkout -b br_20220227_001
+
+$ vim testfile_001.txt
+$ git commit -a -m 'Create new file testfile_001.txt on br_20220227_001'
+On branch br_20220227_001
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        testfile_001.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+$ git add testfile_001.txt
+
+$ git commit -a -m 'Create new file testfile_001.txt on br_20220227_001'
+[br_20220227_001 b7fc55c] Create new file testfile_001.txt on br_20220227_001
+ 1 file changed, 1 insertion(+)
+ create mode 100644 testfile_001.txt
+
+$ git push origin br_20220227_001
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 335 bytes | 335.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'br_20220227_001' on GitHub by visiting:
+remote:      https://github.com/r3hnny/hello-world/pull/new/br_20220227_001
+remote:
+To https://github.com/r3hnny/hello-world.git
+ * [new branch]      br_20220227_001 -> br_20220227_001
