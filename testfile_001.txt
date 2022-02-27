@@ -35,3 +35,19 @@ remote:      https://github.com/r3hnny/hello-world/pull/new/br_20220227_001
 remote:
 To https://github.com/r3hnny/hello-world.git
  * [new branch]      br_20220227_001 -> br_20220227_001
+
+--Added in browser (to remote repo)
+$ git commit -a -m 'Added some notes to testfile_001.txt on br_20220227_001'
+[br_20220227_001 4653b2e] Added some notes to testfile_001.txt on br_20220227_001
+ 1 file changed, 36 insertions(+)
+ 
+$ git push origin br_20220227_001
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 888 bytes | 888.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/r3hnny/hello-world.git
+   b7fc55c..4653b2e  br_20220227_001 -> br_20220227_001
+ 
