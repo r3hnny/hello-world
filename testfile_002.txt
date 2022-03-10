@@ -1,3 +1,53 @@
 Added this file to br_20220309_001
 
 added this comment on br_20220309_002
+
+##Notes 2022.03.10
+--on branch br_20220227_001
+Pops@DESKTOP-G8IB66I MINGW64 ~/Documents/rigb/it_projects/test_works/git01/hello-world (br_20220227_001)
+$ git status
+On branch br_20220227_001
+nothing to commit, working tree clean
+
+Pops@DESKTOP-G8IB66I MINGW64 ~/Documents/rigb/it_projects/test_works/git01/hello-world (br_20220227_001)
+$ git pull
+remote: Enumerating objects: 15, done.
+remote: Counting objects: 100% (15/15), done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 13 (delta 5), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (13/13), 3.22 KiB | 1024 bytes/s, done.
+From https://github.com/r3hnny/hello-world
+   a0999b6..f532439  br_20220227_001 -> origin/br_20220227_001
+ * [new branch]      br_20220309_001 -> origin/br_20220309_001
+ * [new branch]      br_20220309_002 -> origin/br_20220309_002
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> br_20220227_001
+
+$ git checkout br_20220309_001
+Switched to a new branch 'br_20220309_001'
+branch 'br_20220309_001' set up to track 'origin/br_20220309_001'.
+
+$ ls
+README.md  testfile_001.txt  testfile_002.txt  <--new file created in the web pulled in 
+
+--creating a local branch (br_20220310_001) off the exisitng br_20220309_001 branch and pushing it to GitHUb
+Option A. create the branch and switch to it
+$ cd hello-world         (cd to repository)
+$ git checkout br_20220309_001
+$ git branch br_20220310_001
+$ git switch br_20220310_001
+make changes to testfile_002,txt
+$ git commit -a -m 'Saving existing testfile_002.txt on br_20220310_001'
+$ git push origin br_20220310_001
+
+Option B. create a new branch and switch to it at the same time
+$ cd hello-world         (cd to repository)
+$ git checkout br_20220309_001
+$ git checkout -b br_20220310_001
