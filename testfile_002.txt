@@ -51,3 +51,73 @@ Option B. create a new branch and switch to it at the same time
 $ cd hello-world         (cd to repository)
 $ git checkout br_20220309_001
 $ git checkout -b br_20220310_001
+
+--Notes 2022.03.20
+- create a local branch, 'br_20220320_forDeletion' off br_20220310_001
+  $ git checkout br_20220310_001
+  $ git pull origin br_20220310_001
+  
+  $ git checkout -b br_20220320_forDeletion
+  Switched to a new branch 'br_20220320_forDeletion'
+
+-Check if br_20220320_forDeletion is created in remote
+  -Nope...branch is local only
+  
+-put a comment on testfile_002,txt to say that this branch is for deletion
+ This branch 'br_20220320_forDeletion' is for deletion in the the local repo first then in the remote
+ 
+-Commit the change 
+Pops@DESKTOP-G8IB66I MINGW64 ~/Documents/rigb/it_projects/test_works/git01/hello-world (br_20220320_forDeletion)
+$ git commit -a -m 'Saving existing testfile_002.txt on br_20220320_forDeletion'
+[br_20220320_forDeletion 0ef63ca] Saving existing testfile_002.txt on br_20220320_forDeletion
+ 1 file changed, 3 insertions(+)
+ 
+    -at this point the branch is not yet created in remote.
+    
+-Push to remote.
+Pops@DESKTOP-G8IB66I MINGW64 ~/Documents/rigb/it_projects/test_works/git01/hello-world (br_20220320_forDeletion)
+$ git push origin br_20220320_forDeletion
+...
+remote:
+To https://github.com/r3hnny/hello-world.git
+ * [new branch]      br_20220320_forDeletion -> br_20220320_forDeletion
+ 
+    -at this point the branch has been create in remote
+    
+-Delete the branch at remote.. 
+-ensure you are on br_20220320_forDeletion
+$ git push origin --delete br_20220320_forDeletion
+To https://github.com/r3hnny/hello-world.git
+ - [deleted]         br_20220320_forDeletion
+ 
+    -at this point the branch in the remote repo has been deleted, the local branch remains.
+    
+To see which branches are already merged into the branch you’re on, you can run git branch --merged:
+$ git branch --merged 
+
+-Delete the local branch
+Pops@DESKTOP-G8IB66I MINGW64 ~/Documents/rigb/it_projects/test_works/git01/hello-world (br_20220320_forDeletion)
+$ git branch -d br_20220320_forDeletion
+error: Cannot delete branch 'br_20220320_forDeletion' checked out at 'C:/Users/Pops/Documents/rigb/it_projects/test_works/git01/hello-world'
+
+-Switch to the main branch and try again
+Pops@DESKTOP-G8IB66I MINGW64 ~/Documents/rigb/it_projects/test_works/git01/hello-world (br_20220320_forDeletion)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Pops@DESKTOP-G8IB66I MINGW64 ~/Documents/rigb/it_projects/test_works/git01/hello-world (main)
+$ git branch -d br_20220320_forDeletion
+error: The branch 'br_20220320_forDeletion' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D br_20220320_forDeletion'.
+
+Pops@DESKTOP-G8IB66I MINGW64 ~/Documents/rigb/it_projects/test_works/git01/hello-world (main)
+$ git branch -D br_20220320_forDeletion
+Deleted branch br_20220320_forDeletion (was 0ef63ca).
+
+Pops@DESKTOP-G8IB66I MINGW64 ~/Documents/rigb/it_projects/test_works/git01/hello-world (main)
+$ git branch --list
+  br_20220227_001
+  br_20220309_001
+  br_20220310_001
+* main
