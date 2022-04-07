@@ -121,6 +121,3 @@ $ git branch --list
   br_20220309_001
   br_20220310_001
 * main
-
---2022.04.07
-edit testfile_002.txt in new branch br_20220310_001_a, merge to br_20220310_001, revert
